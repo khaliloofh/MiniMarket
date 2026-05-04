@@ -71,6 +71,6 @@ show_history(username): İstifadəçinin log faylından son 20 hərəkətini oxu
 
 
 
-
+QEYD: Kodu yazarken Suni intellekten "copy-paste" etmeden komek almisam, lazm olan terminleri funksiyalari arasdirib oyrenmisem.
 
   
