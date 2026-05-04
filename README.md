@@ -1,8 +1,8 @@
-Mini Market Sistemi ( username: enver password: 1106 )
+===== Mini Market Sistemi ===== ( username: enver password: 1106 )
 
 Bu layihe - DB olmadan Python dilinde, butun melumatlari fayl formatinda saxlayan bir magaza sistemidir. Sitem normal marketde olan sebete elave etme, favoritlere elave etme, kateqoryaya uygun mehsullarn siralanmasi ve tarixceni gormek kimi ozelliklere sahibdir.
 
-Muellimin teqdim etdiyi *Test Ssenarileri*
+===== Muellimin teleb etdiyi *Test Ssenarileri* =====
 
 Test ssenariləri (minimum) ( Checklist ✅ )
 1. Login limiti: 3 səhv → 10s cooldown → sonra doğru şifrə ilə giriş. ✅
@@ -16,7 +16,7 @@ Test ssenariləri (minimum) ( Checklist ✅ )
 
 - Butun testlerden kecmisdir
 
-*Layihede istifade olunan esas anlayislar*
+===== *Layihede istifade olunan esas anlayislar* =====
 
 JSON (JavaScript Object Notation): Məlumatları "açar-dəyər" (key-value) cütlüyü şəklində saxlayan yüngül məlumat formatıdır. Bizim proqramda Python lüğətlərini (dictionary) faylda saxlamaq üçün istifadə olunur.
 
@@ -30,7 +30,7 @@ Timestamp (Zaman Damğası): Hər hansı bir hadisənin (məs: login və ya alı
 
 UTF-8: Fayllarda Azərbaycan hərflərinin (ə, ö, ü, ç, ş, ğ) düzgün oxunması və yazılması üçün istifadə olunan kodlaşdırma standartı.
 
-*Layihə bütün məlumatları data/ qovluğunda saxlayır:*
+===== *Layihə bütün məlumatları data/ qovluğunda saxlayır:* =====
 
 users.json: İstifadəçi adları, şifrələr, balans və bloklanma məlumatlarını saxlayır.
 
@@ -44,7 +44,7 @@ history_<user>.log: İstifadəçinin bütün hərəkətlərini (uğurlu/uğursuz
 
 purchases_<user>.json: Tamamlanmış (pulu ödənilmiş) alış-verişlərin arxivi.
 
-*Kod daxilindəki əsas funksiyaların vəzifələri:*
+===== *Kod daxilindəki əsas funksiyaların vəzifələri:* =====
 
 Məlumat İdarəetmə Funksiyaları
 load_json(path, default): Göstərilən yoldakı faylı açır və Python formatına çevirir. Əgər fayl yoxdursa, proqramın dayanmaması üçün boş bir siyahı və ya lüğət qaytarır.
