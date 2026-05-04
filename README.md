@@ -1,76 +1,61 @@
-===== Mini Market Sistemi ===== ( username: enver password: 1106 )
+# Mini Market System
 
-Bu layihe - DB olmadan Python dilinde, butun melumatlari fayl formatinda saxlayan bir magaza sistemidir. Sitem normal marketde olan sebete elave etme, favoritlere elave etme, kateqoryaya uygun mehsullarn siralanmasi ve tarixceni gormek kimi ozelliklere sahibdir.
+A file-based mini market system built with Python. No database — all data is stored in JSON files.
 
-===== Muellimin teleb etdiyi *Test Ssenarileri* =====
+## How to Run
 
-Test ssenariləri (minimum) ( Checklist ✅ )
-1. Login limiti: 3 səhv → 10s cooldown → sonra doğru şifrə ilə giriş. ✅
-2. Səbət axını: Geyimlərdən T-Shirt ×2 Səbətə əlavə et → balans dəyişməməlidir. ✅
-3. Checkout uğurlu: Səbətdəki cəmi hesabla → balans kifayət edirsə Checkout et → balansdan çıx → purchases-a yaz. ✅
-4. Checkout uğursuz: Səbətə balansdan çox məbləğlik elementlər yığ → checkout → rədd (səbət dəyişməz qalır). ✅
-5. Favorit → Səbət: Favoritə əlavə et → Favoritdən Səbətə at → Checkout et. ✅
-6. Şifrə dəyişmə: Köhnə şifrəni təsdiq et → yenisini təyin et → çıxış → yeni şifrə ilə giriş. ✅
-7. Tarixçə: Yuxarıdakı bütün hadisələr logda ardıcıllıqla görünsün. ✅
-8. Persistensiya: Proqram bağlanıb-açıldıqdan sonra səbət, favoritlər, purchases, balans qorunsun. ✅
+Make sure Python is installed, then run:
 
-- Butun testlerden kecmisdir
+## Login
 
-===== *Layihede istifade olunan esas anlayislar* =====
+Default account:
+- Username: `enver`
+- Password: `1106`
 
-JSON (JavaScript Object Notation): Məlumatları "açar-dəyər" (key-value) cütlüyü şəklində saxlayan yüngül məlumat formatıdır. Bizim proqramda Python lüğətlərini (dictionary) faylda saxlamaq üçün istifadə olunur.
+## Menu Options
+1 Categories
+2 My Cart
+3 My Favorites
+4 History
+5 Settings (Change Password)
+6 Show Balance
+0 Exit
 
-File I/O (Input/Output): Fayla məlumat yazılması və fayldan məlumat oxunması prosesidir.
+## File Structure
 
-Data Persistence (Məlumatın Davamlılığı): Proqram bağlansa belə, məlumatların itməməsi xüsusiyyətidir. Məlumatlar diskdəki fayllarda saxlandığı üçün növbəti dəfə proqram açıldıqda hər şey yerində qalır.
+data/
+├── users.json              # User accounts and login info
+├── products.json           # Categories and products
+├── basket_enver.json       # Cart items
+├── favorites_enver.json    # Favorite products
+├── purchases_enver.json    # Completed orders
+└── history_enver.log       # Activity log
 
-Cooldown (Gözləmə Müddəti): Təhlükəsizlik funksiyasıdır. Ardıcıl olaraq 3 dəfə səhv şifrə daxil edildikdə, sistemin müvəqqəti olaraq (10 saniyə) girişi bloklamasıdır.
+## Sample Usage
 
-Timestamp (Zaman Damğası): Hər hansı bir hadisənin (məs: login və ya alış-veriş) tam olaraq hansı saniyədə baş verdiyini göstərən vaxt qeydi.
+### Scenario 1: Add to cart and checkout
+1. Run the program: `python main.py`
+2. Login with username `enver`, password `0611`
+3. Select `1. Categories` → `CLOTHES`
+4. Select product ID 1 (Socks), quantity 2
+5. Press `B` to add to cart
+6. Select `2. My Cart`
+7. Type `checkout` — balance is deducted, purchase saved
 
-UTF-8: Fayllarda Azərbaycan hərflərinin (ə, ö, ü, ç, ş, ğ) düzgün oxunması və yazılması üçün istifadə olunan kodlaşdırma standartı.
+### Scenario 2: Favorites to cart
+1. Login with username `enver`, password `0611`
+2. Select `1. Categories` → `ELECTRONICS`
+3. Select Headphones, quantity 1, press `F` to add to favorites
+4. Select `3. My Favorites`
+5. Enter ID `0` → quantity 1 → added to cart
+6. Select `2. My Cart` → type `checkout`
 
-===== *Layihə bütün məlumatları data/ qovluğunda saxlayır:* =====
+## Login Security
 
-users.json: İstifadəçi adları, şifrələr, balans və bloklanma məlumatlarını saxlayır.
+- 3 wrong password attempts → 10 second cooldown
+- Cooldown countdown shown in terminal
+- All login attempts logged with timestamp
 
-products.json: Mağazadakı kateqoriyaları və hər kateqoriyaya aid məhsul siyahısını (ad, qiymət, ID) saxlayır.
+## Note
 
-basket_<user>.json: Hər bir istifadəçinin özünə aid, hələ pulları ödənilməmiş (gözləyən) məhsullar siyahısı.
-
-favorites_<user>.json: İstifadəçinin sonradan almaq üçün bəyəndiyi məhsullar.
-
-history_<user>.log: İstifadəçinin bütün hərəkətlərini (uğurlu/uğursuz login, alışlar) sətir-sətir saxlayan jurnal faylı.
-
-purchases_<user>.json: Tamamlanmış (pulu ödənilmiş) alış-verişlərin arxivi.
-
-===== *Kod daxilindəki əsas funksiyaların vəzifələri:* =====
-
-Məlumat İdarəetmə Funksiyaları
-load_json(path, default): Göstərilən yoldakı faylı açır və Python formatına çevirir. Əgər fayl yoxdursa, proqramın dayanmaması üçün boş bir siyahı və ya lüğət qaytarır.
-
-save_json(path, data): Proqramda yenilənmiş məlumatları JSON formatında fayla yazır. indent=2 parametri sayəsində fayl Notepad ilə açıldıqda insan tərəfindən rahat oxunur.
-
-init_data(): Proqram ilk dəfə işə düşəndə lazım olan qovluğu və standart istifadəçi/məhsul fayllarını yaradır.
-
-İstifadəçi Əməliyyatları
-login(): Giriş prosesini idarə edir. İstifadəçini tapır, bloklanıb-bloklanmadığını yoxlayır və şifrəni təsdiqləyir.
-
-change_password(user): İstifadəçinin köhnə şifrəsini təsdiqləyərək yeni şifrə təyin etməsini təmin edir (Minimum 4 simvol tələbi ilə).
-
-log_event(username, message): Hər bir mühüm addımı zaman damğası ilə log faylına əlavə edir.
-
-Market və Alış-veriş Məntiqi
-browse_products(user): Məhsul kataloqunu göstərir. İstifadəçiyə miqdar daxil etməklə məhsulu səbətə (B) və ya favoritə (F) atmaq imkanı verir.
-
-manage_basket(user): Səbəti idarə edir. Burada list, qty (say dəyişmə), remove (silmə) və checkout (ödəniş) əmrləri icra olunur.
-
-manage_favorites(user): Favoritləri siyahılayır və oradakı məhsulu birbaşa səbətə köçürür.
-
-show_history(username): İstifadəçinin log faylından son 20 hərəkətini oxuyub ekranda göstərir.
-
-
-
-QEYD: Kodu yazarken Suni intellekten "copy-paste" etmeden komek almisam, lazm olan terminleri funksiyalari arasdirib oyrenmisem.
-
-  
+I would like to note that this project was not created by artificial intelligence, but received help. I was able to build this system by learning and applying what I didn't know
