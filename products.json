@@ -1,0 +1,70 @@
+{
+  "CLOTHES": [
+    {
+      "id": 1,
+      "name": "Socks",
+      "price": 3.99
+    },
+    {
+      "id": 2,
+      "name": "Shirt",
+      "price": 19.99
+    },
+    {
+      "id": 3,
+      "name": "Jacket",
+      "price": 29.99
+    }
+  ],
+  "ELECTRONICS": [
+    {
+      "id": 1,
+      "name": "Headphones",
+      "price": 55.0
+    },
+    {
+      "id": 2,
+      "name": "Charger",
+      "price": 25.0
+    },
+    {
+      "id": 3,
+      "name": "Keyboard",
+      "price": 35.0
+    }
+  ],
+  "TOOLS": [
+    {
+      "id": 1,
+      "name": "Screwdriver",
+      "price": 5.0
+    },
+    {
+      "id": 2,
+      "name": "Hammer",
+      "price": 9.0
+    },
+    {
+      "id": 3,
+      "name": "Wrench",
+      "price": 7.0
+    }
+  ],
+  "DRINKS": [
+    {
+      "id": 1,
+      "name": "Water",
+      "price": 0.99
+    },
+    {
+      "id": 2,
+      "name": "Soda",
+      "price": 1.5
+    },
+    {
+      "id": 3,
+      "name": "Juice",
+      "price": 2.0
+    }
+  ]
+}

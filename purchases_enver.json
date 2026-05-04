@@ -1,0 +1,22 @@
+[
+  {
+    "ts": "2026-05-04T17:30:35.643005",
+    "items": [
+      {
+        "category": "CLOTHES",
+        "product": "Socks",
+        "unit_price": 3.99,
+        "qty": 1,
+        "line_total": 3.99
+      },
+      {
+        "category": "ELECTRONICS",
+        "product": "Headphones",
+        "unit_price": 55.0,
+        "qty": 1,
+        "line_total": 55.0
+      }
+    ],
+    "total": 58.99
+  }
+]
