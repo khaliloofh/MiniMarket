@@ -23,6 +23,7 @@ Default account:
 
 ## File Structure
 
+```
 data/
 ├── users.json              # User accounts and login info
 ├── products.json           # Categories and products
@@ -30,6 +31,7 @@ data/
 ├── favorites_enver.json    # Favorite products
 ├── purchases_enver.json    # Completed orders
 └── history_enver.log       # Activity log
+```
 
 ## Sample Usage
 
