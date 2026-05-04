@@ -1,0 +1,21 @@
+- Scenario 1
+Giris - username: enver password:1106
+Ugurlu giris - "Welcome, enver!" yazisi cixdi ve menyu acildi
+Secim - 1.Categories secildi --> 2. electronics secildi
+Mehsul secimi - 1. headphones secilib quantity olaraq 1 secildi ve (F)favoritlere elave olundu
+Mehusl alimi - Esas menyudan 3.Favorites secildi ve Favorites menyusuna daxil olundu
+Favoritlerden Sebete kecis - Favoritlere elave olunan headphones'in id'si daxil edilir (0) ve almaq istediyimiz say qeyd olunur (1) ve Headphones sebete kecir
+Sebetdekilerin alimi - esas menyudan 2.My Cart secilir, acilan menyudan checkout edib mehsulu aliriq.
+Ugurlu alis - headphone alinir ve balansdan headphones'un qiymeti cixilir
+Sistemden cixis - My card bolmesindeki menyudan "back" yazib menyudan cixiriq daha sonra "0" secib sistemden cixiriq
+
+
+- Scenario 2
+Giris - giris zamani sifre 3 defe sehv yazildi
+Bloklanma - sistem 10s cooldown tedbiq etdi
+Duzgun giris - cooldown bitdikden sonra duzgun kod yazildi
+Kod deyisimi - 5.Settings secilir acilan menyuda Old passwordu yaziriq, duzgun daxil etdikden sonra yenisini yaziriq
+Qisa kod xetasi - Yeni kodu 3 simvollu yazildigina gore "New password is too short" xetasi verildi ve Esas menyuya qayidildi
+Yeniden kod deyisimi - esas menyudan 5. settings secilir ve acilan menyudan old passwordu qeyd edib daha sonra yenisini qeyd edirik
+Ugurlu deyisim - Password changed successfully! yazisini goruruk ve esas menyuya avtomatik qayidiriq
+sistemden cixis - esas menyudan 0. secirik ve sistemden cixiriq
