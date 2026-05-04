@@ -2,6 +2,9 @@
 
 Bu layihe - DB olmadan Python dilinde, butun melumatlari fayl formatinda saxlayan bir magaza sistemidir. Sitem normal marketde olan sebete elave etme, favoritlere elave etme, kateqoryaya uygun mehsullarn siralanmasi ve tarixceni gormek kimi ozelliklere sahibdir.
 
+
+
+
 ===== Muellimin teleb etdiyi *Test Ssenarileri* =====
 
 Test ssenariləri (minimum) ( Checklist ✅ )
@@ -15,6 +18,9 @@ Test ssenariləri (minimum) ( Checklist ✅ )
 8. Persistensiya: Proqram bağlanıb-açıldıqdan sonra səbət, favoritlər, purchases, balans qorunsun. ✅
 
 - Butun testlerden kecmisdir
+
+
+
 
 ===== *Layihede istifade olunan esas anlayislar* =====
 
@@ -30,6 +36,10 @@ Timestamp (Zaman Damğası): Hər hansı bir hadisənin (məs: login və ya alı
 
 UTF-8: Fayllarda Azərbaycan hərflərinin (ə, ö, ü, ç, ş, ğ) düzgün oxunması və yazılması üçün istifadə olunan kodlaşdırma standartı.
 
+
+
+
+
 ===== *Layihə bütün məlumatları data/ qovluğunda saxlayır:* =====
 
 users.json: İstifadəçi adları, şifrələr, balans və bloklanma məlumatlarını saxlayır.
@@ -43,6 +53,10 @@ favorites_<user>.json: İstifadəçinin sonradan almaq üçün bəyəndiyi məhs
 history_<user>.log: İstifadəçinin bütün hərəkətlərini (uğurlu/uğursuz login, alışlar) sətir-sətir saxlayan jurnal faylı.
 
 purchases_<user>.json: Tamamlanmış (pulu ödənilmiş) alış-verişlərin arxivi.
+
+
+
+
 
 ===== *Kod daxilindəki əsas funksiyaların vəzifələri:* =====
 
